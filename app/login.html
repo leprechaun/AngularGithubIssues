@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" ng-app="gallery">
+<head>
+  <meta charset="utf-8">
+  <title>AngularJS static galery</title>
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+
+  <script src="js/settings.js"></script>
+  <script src="js/hello.all.js"></script>
+  <script type="text/javascript">
+    hello.init({ 
+      github   : "314cbcb3e7c627fe6895"
+    });
+  </script>
+
+  <script type="text/javascript">
+hello.on('auth.login', function(auth){
+  // call user information, for the given network
+  hello( auth.network ).api( '/me' ).success(function(r){
+    var $target = $("#profile_"+ auth.network );
+    if($target.length==0){
+      $target = $("<div id='profile_"+auth.network+"'></div>").appendTo("#profile");
+    }
+    $target.html('<img src="'+ r.thumbnail +'" /> Hey '+r.name).attr('title', r.name + " on "+ auth.network);
+  });
+});
+  </script>
+</head>
+<body ng-view>
+
+
+  <button onclick="hello('github').login()">Github</button>
+<div id="profile_github"></div>
+</body>
+</html>

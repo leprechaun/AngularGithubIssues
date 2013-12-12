@@ -1,0 +1,25 @@
+/* app css stylesheet */
+
+body {
+  padding-top: 10px;
+}
+
+a.repo-link {
+  font-size: 20px;
+}
+
+span.issue-label {
+  padding: 5px;
+}
+
+a.issue-title {
+  font-size: 20px;
+}
+
+.issue-details {
+  margin-top: 10px;
+}
+
+li.issue {
+  margin-bottom: 20px;
+}
