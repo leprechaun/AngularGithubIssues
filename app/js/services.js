@@ -49,7 +49,21 @@ myModule.factory('Gallery', function($resource){
         url: "https://api.github.com/search/issues/",
         params: {q: "", sort: "created", order: "asc", access_token: oauth_access_token}
       }
-    })
+    }),
+    repos: $resource('https://api.github.com/issues/', {}, {
+      search: {
+        method: "GET",
+        url: "https://api.github.com/search/repositories/",
+        params: {q: "", sort: "stars", order: "desc", access_token: oauth_access_token}
+      },
+      issues: {
+        method: "GET",
+        url: "https://api.github.com/repos/:owner/:repo/issues",
+        params: {access_token: oauth_access_token},
+        isArray: true
+      }
+    }),
+
   };
   return Github;
 });

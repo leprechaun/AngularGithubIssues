@@ -12,3 +12,14 @@ While these aren't of particular interest, my hope is to make a dashboard to hel
 A few month a go, @Seldaek proposed open source projects use the issue tag "Easy Pick" to help newbies into committing to OSS. I think it's a great idea. I'd like to makea dashboard that helps programmers chose issues they can likely contribute to. Sadly, it seems "Easy Pick" wasn't as widely adopted as I would have hoped, but perhaps I can come up with some heuristics that can properly sort github issues by ease of contribution or perhaps just sniping good issues in order to "karma whore".
 
 We'll see how this goes.
+
+
+Strategies
+----------
+
+Top issues by comments
+Top issues by score
+
+Top issues of top projects
+
+Issues with "Easy Pick" label

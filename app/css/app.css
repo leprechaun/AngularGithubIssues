@@ -23,3 +23,7 @@ a.issue-title {
 li.issue {
   margin-bottom: 20px;
 }
+
+span.issue-label {
+  border-radius: 3px;
+}

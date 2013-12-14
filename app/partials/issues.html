@@ -1,7 +1,7 @@
 <ul>
-  <li ng-repeat="issue in issues" class="issue">
+  <li ng-repeat="issue in issues track by $index | orderBy:score" class="issue">
     <a class="repo-link" href="https://github.com/{{issue.repo}}">{{issue.repo}}</a>
-    <a class="issue-title" href="{{issue.html_url}}" target="_blank">{{issue.title}}</a><br/>
+    <a class="issue-title" href="{{issue.html_url}}" target="_blank">{{issue.title}}</a> {{issue.score}}<br/>
     <div class="issue-details">
       <span class="issue-labels-container">
         <span class="issue-label-container" ng-repeat="label in issue.labels">
