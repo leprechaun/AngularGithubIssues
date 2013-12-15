@@ -25,13 +25,22 @@ function IssuesSearch_TopProjectsCtrl($scope, $routeParams, Gallery){
       if( repo.has_issues )
       {
         Gallery.repos.issues({owner: repo.owner.login, repo: repo.name}, function(repo_issues){
-          for(var i in repo_issues){
-            if( typeof(repo_issues[i]) != 'function' ){
-              issues.push(repo_issues[i]);
+          var repol = repos_list.items[i];
+          for(var j in repo_issues){
+            if( typeof(repo_issues[j]) != 'function' && !isNaN(parseInt(j)) ){
+              if(typeof(repo_issues[j].pull_request.diff_url) == "object"){
+                console.log(repo_issues[j]);
+                repo_issues[j].repo = repo_issues[j].html_url.replace("https://github.com/", "");
+                repo_issues[j].repo = repo_issues[j].repo.replace("/issues/" + repo_issues[j].number, "");
+                repo_issues[j].score = (parseInt(repol.forks_count) + parseInt(repol.stargazers_count)) * Math.max( parseInt(repo_issues[j].comments), 1);
+                issues.push(repo_issues[j]);
+              }
             }
           }
         });
       }
     }
+    $scope.issues = issues;
+    $scope.sorter = "-score";
   });
 }

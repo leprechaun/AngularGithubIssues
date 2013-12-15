@@ -1,5 +1,10 @@
+<select ng-model="sorter">
+  <option value="title">title</option>
+  <option value="-score">score</option>
+  <option value="score">score 2</option>
+</select>
 <ul>
-  <li ng-repeat="issue in issues track by $index | orderBy:score" class="issue">
+  <li ng-repeat="issue in issues | orderBy:sorter track by $index" class="issue">
     <a class="repo-link" href="https://github.com/{{issue.repo}}">{{issue.repo}}</a>
     <a class="issue-title" href="{{issue.html_url}}" target="_blank">{{issue.title}}</a> {{issue.score}}<br/>
     <div class="issue-details">
