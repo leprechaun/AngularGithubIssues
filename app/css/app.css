@@ -4,8 +4,11 @@ body {
   padding-top: 10px;
 }
 
-a.repo-link {
+span.repo-link {
   font-size: 20px;
+  background-color: #CCCCCC;
+  border-radius: 3px;
+  padding: 3px;
 }
 
 span.issue-label {

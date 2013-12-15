@@ -18,7 +18,7 @@ function IssuesSearchCtrl($scope, $routeParams, Gallery) {
 }
 
 function IssuesSearch_TopProjectsCtrl($scope, $routeParams, Gallery){
-  Gallery.repos.search( {q:"language:Python"}, function(repos_list) {
+  Gallery.repos.search( {q:"stars:>1"}, function(repos_list) {
     var issues = [];
     for( var i in repos_list.items ){
       var repo = repos_list.items[i];

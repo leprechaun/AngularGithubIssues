@@ -5,7 +5,10 @@
 </select>
 <ul>
   <li ng-repeat="issue in issues | orderBy:sorter track by $index" class="issue">
-    <a class="repo-link" href="https://github.com/{{issue.repo}}">{{issue.repo}}</a>
+    <span class="repo-link">
+      <i class="fa fa-github"></i>
+      <a class="repo-link" href="https://github.com/{{issue.repo}}"> {{issue.repo}}</a>
+    </span>
     <a class="issue-title" href="{{issue.html_url}}" target="_blank">{{issue.title}}</a> {{issue.score}}<br/>
     <div class="issue-details">
       <span class="issue-labels-container">
